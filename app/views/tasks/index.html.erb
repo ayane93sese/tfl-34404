@@ -1,5 +1,3 @@
-<h1>we are one</h1>
-
 
 <div class='nav'>
   <ul class='lists-right'>
@@ -12,3 +10,32 @@
     <% end %>
   </ul>
 </div>
+
+<p class='month'><%= @today.strftime("< %m / %Y >") %></p>
+
+<div class='calendar'>
+  <table>
+    <tr>
+      <% t('date.abbr_day_names').each do |day_name| %>
+        <td class='item'>
+        <%= day_name %>
+        </td>
+      <% end %>
+    </tr>
+    <% @calendar_data.each do |date| %>
+      <% if date.wday == 0 %>
+        <tr>
+      <% end %>
+      <td class='item'>
+        <p><%= date.day %></p>
+        <div class='plan-list'>予定</div>
+      </td>
+      <% if date.wday == 6 %>
+      </tr>
+      <% end %>
+    <% end %>
+  </table>
+</div>
+
+
+
