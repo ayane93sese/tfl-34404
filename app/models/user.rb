@@ -7,4 +7,6 @@ class User < ApplicationRecord
   validates :username, presence:true
   validates :password, format: {with: (/\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i), message: "Include both letters and numbers"}
 
+  has_many :tasks
+
 end
